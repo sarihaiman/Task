@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TaskServices;
 using Task.Models;
+using Task.Interface;
 
 namespace _1.Controllers;
 
@@ -8,6 +9,12 @@ namespace _1.Controllers;
 [Route("[controller]")]
 public class TaskController : ControllerBase
 {
+    ITaskService TaskServicess;
+    public TaskController(ITaskService TaskServicess)
+    {
+        this.TaskServicess = TaskServicess;
+    }
+
     [HttpGet]
     public ActionResult<List<Task1>> Get()
     {

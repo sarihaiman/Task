@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "a3C4gSe1K8Lf3OfQ0A9B20aq2NHxlXnlsrqrDclTafPyubifM+ashmxMQFUjOobHle7UWFDfhF0tJLAh2jfVZw==",
+  "dgSpecHash": "oNwitVRUBZWnRBBD+5dN7NusSlSLNbw64MNW/92UU4VhK0IyMbD2DKMOSq2D2rJasWtmls1uoEfG2l8U18JkyA==",
   "success": true,
-  "projectFilePath": "Z:\\B\\היימן שרה\\core\\2\\Task\\1.csproj",
+  "projectFilePath": "Z:\\B\\היימן שרה\\core\\3\\MyTask\\1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\huser\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\huser\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

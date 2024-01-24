@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TaskServices;
-using Task.Models;
-using Task.Interface;
+using MyTask.Models;
+using MyTask.Interface;
 
 namespace _1.Controllers;
 

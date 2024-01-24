@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\B\\היימן שרה\\core\\2\\Task\\1.csproj": {}
+    "Z:\\B\\היימן שרה\\core\\3\\MyTask\\1.csproj": {}
   },
   "projects": {
-    "Z:\\B\\היימן שרה\\core\\2\\Task\\1.csproj": {
+    "Z:\\B\\היימן שרה\\core\\3\\MyTask\\1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\B\\היימן שרה\\core\\2\\Task\\1.csproj",
+        "projectUniqueName": "Z:\\B\\היימן שרה\\core\\3\\MyTask\\1.csproj",
         "projectName": "1",
-        "projectPath": "Z:\\B\\היימן שרה\\core\\2\\Task\\1.csproj",
+        "projectPath": "Z:\\B\\היימן שרה\\core\\3\\MyTask\\1.csproj",
         "packagesPath": "C:\\Users\\huser\\.nuget\\packages\\",
-        "outputPath": "Z:\\B\\היימן שרה\\core\\2\\Task\\obj\\",
+        "outputPath": "Z:\\B\\היימן שרה\\core\\3\\MyTask\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

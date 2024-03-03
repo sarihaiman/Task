@@ -1,11 +1,22 @@
-const uri = '/Task';
+const uri = '/todo';
 let pizzas = [];
+const token = localStorage.getItem("token");
+getItems(token);
 
-function getItems() {
-    fetch(uri)
+function getItems(token) {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + token);
+    myHeaders.append("Content-Type", "application/json");
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+
+    fetch(uri, requestOptions)
         .then(response => response.json())
         .then(data => _displayItems(data))
-        .catch(error => console.error('Unable to get items.', error));
+        .catch(error => console.log('Unable to get items.', error));
 }
 
 function addItem() {
@@ -15,34 +26,41 @@ function addItem() {
         IsDo: false,
         name: addNameTextbox.value.trim()
     };
+    console.log(item);
 
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + token);
+    myHeaders.append("Content-Type", "application/json");
+    // myHeaders.append("Accept", "application/json");
     fetch(uri, {
             method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
+            headers: myHeaders,
+            redirect: 'follow',
             body: JSON.stringify(item)
         })
         .then(response => response.json())
         .then(() => {
-            getItems();
+            getItems(token);
             addNameTextbox.value = '';
         })
         .catch(error => console.error('Unable to add item.', error));
 }
 
 function deleteItem(id) {
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + token);
+    myHeaders.append("Content-Type", "application/json");
     fetch(`${uri}/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: myHeaders,
+            redirect: 'follow'
         })
-        .then(() => getItems())
+        .then(() => getItems(token))
         .catch(error => console.error('Unable to delete item.', error));
 }
 
 function displayEditForm(id) {
     const item = pizzas.find(item => item.id === id);
-
     document.getElementById('edit-name').value = item.name;
     document.getElementById('edit-id').value = item.id;
     document.getElementById('edit-IsDo').checked = item.IsDo;
@@ -56,16 +74,17 @@ function updateItem() {
         IsDo: document.getElementById('edit-IsDo').checked,
         name: document.getElementById('edit-name').value.trim()
     };
-
+    var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer " + token);
+    myHeaders.append("Content-Type", "application/json");
+    // myHeaders.append("Accept", "application/json");
     fetch(`${uri}/${itemId}`, {
             method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
+            headers: myHeaders,
+            redirect: 'follow',
             body: JSON.stringify(item)
         })
-        .then(() => getItems())
+        .then(() => getItems(token))
         .catch(error => console.error('Unable to update item.', error));
 
     closeInput();
@@ -78,7 +97,7 @@ function closeInput() {
 }
 
 function _displayCount(itemCount) {
-    const name = (itemCount === 1) ? 'task' : 'task kinds';
+    const name = (itemCount === 1) ? 'todo' : 'todo kinds';
 
     document.getElementById('counter').innerText = `${itemCount} ${name}`;
 }

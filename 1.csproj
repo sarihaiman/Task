@@ -4,10 +4,14 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>_1</RootNamespace>
+    <!-- <RootNamespace>_1</RootNamespace> -->
   </PropertyGroup>
 
   <ItemGroup>
+
+    <!-- <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" /> -->
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.9.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 

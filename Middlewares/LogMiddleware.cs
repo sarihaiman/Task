@@ -5,7 +5,7 @@ namespace MyTask.Middlewares;
 public class LogMiddleware
 {
     private RequestDelegate next;
-  private readonly string logFilePath;
+    private readonly string logFilePath;
     public LogMiddleware(RequestDelegate next, string logFilePath)
     {
         this.next = next;
@@ -17,8 +17,8 @@ public class LogMiddleware
         var sw = new Stopwatch();
         sw.Start();
         await next(c);
-        WriteLogToFile($"{c.Request.Path}.{c.Request.Method} took {sw.ElapsedMilliseconds}ms."
-            + $" User: {c.User?.FindFirst("userId")?.Value ?? "unknown"}");     
+        WriteLogToFile($"{DateTime.Now} {c.Request.Path}.{c.Request.Method} took {sw.ElapsedMilliseconds}ms."
+            + $"{c.User?.FindFirst("userId")?.Value ?? "unknown"}");     
     }  
 
     private void WriteLogToFile(string logMessage)

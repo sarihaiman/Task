@@ -34,34 +34,33 @@ private List<User> users;
 
  public List<User> GetAllUser() => users;
 
-  public User GetUserById(string Password) 
+  public User GetUserById(int UserId) 
     {
-        return users.FirstOrDefault(p => p.Password == Password);
+        return users.FirstOrDefault(p => p.UserId == UserId);
     }
 
 
-public  string AddUser(User user)
+public int AddUser(User user)
     {
         if (users.Count == 0)
-
             {
                 user.Password = "1";
             }
             else
             {
-        user.Password =  users.Max(p => p.Password) + 1;
+        user.UserId =  users.Max(p => p.UserId) + 1;
             }
         users.Add(user);
         saveToFileUsers();
-        return user.Password;
+        return user.UserId;
     }
   
-public bool UpdateUser(string Password, User user)
+public bool UpdateUser(int UserId, User user)
     {
-        if (Password != user.Password)
+        if (UserId != user.UserId)
             return false;
 
-        var existingTask = GetUserById(Password);
+        var existingTask = GetUserById(UserId);
         if (existingTask == null )
             return false;
 
@@ -74,9 +73,9 @@ public bool UpdateUser(string Password, User user)
         return true;
     }  
 
-public bool DeleteUser(string password)
+public bool DeleteUser(int UserId)
     {
-        var existingTask = GetUserById(password);
+        var existingTask = GetUserById(UserId);
         if (existingTask == null )
             return false;
         var index = users.IndexOf(existingTask);

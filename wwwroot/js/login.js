@@ -32,4 +32,10 @@ function Login() {
             }
         }).catch((error) => alert("error", error));
 
+
+        document.getElementById('btn-google-connect').addEventListener('click', function() {
+            // Redirect to the Google authentication endpoint or trigger the authentication flow
+            window.location.href = 'https://localhost:7116/';
+        });
+
 }

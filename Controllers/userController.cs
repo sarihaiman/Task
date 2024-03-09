@@ -2,17 +2,22 @@ using Microsoft.AspNetCore.Mvc;
 using UserServices;
 using MyUser.Models;
 using MyUser.Interface;
+using Microsoft.AspNetCore.Authorization;
 
 namespace _1.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+
 public class userController : ControllerBase
 {
     IUserService UserServicess;
-    public userController(IUserService UserServicess)
+    private int userid;
+
+    public userController(IUserService UserServicess, IHttpContextAccessor httpContextAccessor)
     {
         this.UserServicess = UserServicess;
+        this.userid=int.Parse(httpContextAccessor.HttpContext?.User?.FindFirst("UserId")?.Value);
     }
 
     // [HttpGet]
@@ -21,10 +26,11 @@ public class userController : ControllerBase
     //     return UserServicess.AdminGetAll();
     // }
 
-    [HttpGet("{password}")]
-    public ActionResult<User> Get(string password)
+    [HttpGet("{UserId}")]
+    [Authorize(Policy = "User")]
+    public ActionResult<User> Get(int UserId)
     {
-        var User = UserServicess.GetUserById(password);
+        var User = UserServicess.GetUserById(UserId);
         if (User == null)
             return NotFound();
         return User;
@@ -39,16 +45,18 @@ public class userController : ControllerBase
     //         new {id = newId}, UserServicess.GetById(newId));
     // }
 
-    // [HttpPut("{password}")]
-    // public ActionResult Put(string password,User user)
-    // {
-    //     var result = UserServicess.UpdateUser(password, user);
-    //     if (!result)
-    //     {
-    //         return BadRequest();
-    //     }
-    //     return NoContent();
-    // }
+    [HttpPut("{UserId}")]
+    [Authorize(Policy = "User")]
+
+    public ActionResult Put(int UserId,User user)
+    {
+        var result = UserServicess.UpdateUser(UserId, user);
+        if (!result)
+        {
+            return BadRequest();
+        }
+        return NoContent();
+    }
 
     // [HttpDelete("{password}")]
     // public ActionResult Delete(string password)

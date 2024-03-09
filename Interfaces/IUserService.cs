@@ -5,11 +5,10 @@ namespace MyUser.Interface
 {
     public interface IUserService
     {
-        string AddUser(User user);
+       int AddUser(User user);
         List<User> GetAllUser();
-        User GetUserById(string id);
-        
-        // bool UpdateUser(string x,User user);
-        bool DeleteUser(string id);
+        User GetUserById(int id);
+        bool UpdateUser(int x,User user);
+        bool DeleteUser(int id);
     }
 }

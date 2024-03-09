@@ -79,16 +79,16 @@ namespace FBI.Controllers
         [Authorize(Policy = "Admin")]
         public ActionResult Post(User user)
         {
-            var newId = UserServicess.AddUser(user);
+            int newId = UserServicess.AddUser(user);
             return CreatedAtAction("Post",
                 new { password = newId }, UserServicess.GetUserById(newId));
         }
 
-        [HttpDelete("{password}")]
+        [HttpDelete("{UserId}")]
         [Authorize(Policy = "Admin")]
-        public ActionResult Delete(string password)
+        public ActionResult Delete(int UserId)
         {
-            var result = UserServicess.DeleteUser(password);
+            var result = UserServicess.DeleteUser(UserId);
             if (!result)
             {
                 return BadRequest();

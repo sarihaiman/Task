@@ -16,6 +16,20 @@ using MyTask.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// builder.Configuration.AddJsonFile("appsettings.json");
+
+// var Configuration = builder.Configuration;
+
+// builder.Services.AddAuthentication(options =>
+//      {
+//          options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+//          options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+//      }).AddGoogle(options =>
+//      {
+//          options.ClientId = Configuration["Authentication:Google:ClientId"];
+//          options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+//      });
+
 
 // Add services to the container.
 builder.Services

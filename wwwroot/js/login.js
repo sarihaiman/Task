@@ -1,11 +1,10 @@
-const url = '/Admin/Login';
+const url = '/Login';
 
 function Login() {
     localStorage.clear();
     var myHeaders = new Headers();
     const name = document.getElementById('name').value.trim();
     const password = document.getElementById('password').value.trim();
-
     myHeaders.append("Content-Type", "application/json");
     var raw = JSON.stringify({
         Username: name,
@@ -34,8 +33,10 @@ function Login() {
 
 
         document.getElementById('btn-google-connect').addEventListener('click', function() {
-            // Redirect to the Google authentication endpoint or trigger the authentication flow
             window.location.href = 'https://localhost:7116/';
         });
-
 }
+
+// function redirectToPostman() {
+//     window.location.href = 'https://www.getpostman.com/Login?name=chaya&password=2';
+// }

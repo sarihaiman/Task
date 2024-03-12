@@ -1,5 +1,4 @@
-const uri = '/Admin/Get';
-const url = '/Admin';
+const uri = '/user';
 let users = [];
 const token = localStorage.getItem("token");
 getItems(token);
@@ -14,7 +13,7 @@ function getItems(token) {
         redirect: 'follow'
     };
 
-    fetch(uri, requestOptions)
+    fetch('/user/GetAll', requestOptions)
         .then(response => response.json())
         .then(data => _displayItems(data))
         .catch(error => {
@@ -38,7 +37,7 @@ function addItem() {
     var myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + token);
     myHeaders.append("Content-Type", "application/json");
-    fetch(url, {
+    fetch(uri, {
             method: 'POST',
             headers: myHeaders,
             redirect: 'follow',
@@ -61,7 +60,7 @@ function deleteItem(id) {
     var myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + token);
     myHeaders.append("Content-Type", "application/json");
-    fetch(`/Admin/${id}`, {
+    fetch(`/user/${id}`, {
             method: 'DELETE',
             headers: myHeaders,
             redirect: 'follow'

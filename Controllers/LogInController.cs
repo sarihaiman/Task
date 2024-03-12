@@ -17,12 +17,12 @@ namespace FBI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class AdminController : ControllerBase
+    public class LoginController : ControllerBase
     {
         private string userfile;
         IUserService UserServicess;
         private List<User> users;
-        public AdminController(IUserService UserServicess)
+        public LoginController(IUserService UserServicess)
         {
             this.UserServicess = UserServicess;
             this.userfile = Path.Combine(/*webHost.ContentRootPath,*/ "Data", "User.json");
@@ -37,7 +37,6 @@ namespace FBI.Controllers
         }
 
         [HttpPost]
-        [Route("[action]")]
         public ActionResult Login([FromBody] User User)
         {
             var user = users.FirstOrDefault(u => u.Username == User.Username && u.Password == User.Password);
@@ -58,13 +57,13 @@ namespace FBI.Controllers
             return new OkObjectResult(TaskTokenService.WriteToken(token));
         }
 
-        [HttpGet]
-        [Authorize(Policy = "Admin")]
-        [Route("[action]")]
-        public ActionResult<List<User>> Get()
-        {
-            return UserServicess.GetAllUser();
-        }
+        // [HttpGet]
+        // [Authorize(Policy = "Admin")]
+        // [Route("[action]")]
+        // public ActionResult<List<User>> Get()
+        // {
+        //     return UserServicess.GetAllUser();
+        // }
 
         // [HttpGet("{id}")]
         // public ActionResult<User> Get(string id)
@@ -75,26 +74,27 @@ namespace FBI.Controllers
         //     return User;
         // }
 
-        [HttpPost]
-        [Authorize(Policy = "Admin")]
-        public ActionResult Post(User user)
-        {
-            int newId = UserServicess.AddUser(user);
-            return CreatedAtAction("Post",
-                new { password = newId }, UserServicess.GetUserById(newId));
-        }
 
-        [HttpDelete("{UserId}")]
-        [Authorize(Policy = "Admin")]
-        public ActionResult Delete(int UserId)
-        {
-            var result = UserServicess.DeleteUser(UserId);
-            if (!result)
-            {
-                return BadRequest();
-            }
-            return NoContent();
-        }
+        // [HttpPost]
+        // [Authorize(Policy = "Admin")]
+        // public ActionResult Post(User user)
+        // {
+        //     int newId = UserServicess.AddUser(user);
+        //     return CreatedAtAction("Post",
+        //         new { password = newId }, UserServicess.GetUserById(newId));
+        // }
+
+        // [HttpDelete("{UserId}")]
+        // [Authorize(Policy = "Admin")]
+        // public ActionResult Delete(int UserId)
+        // {
+        //     var result = UserServicess.DeleteUser(UserId);
+        //     if (!result)
+        //     {
+        //         return BadRequest();
+        //     }
+        //     return NoContent();
+        // }
     }
 
 }

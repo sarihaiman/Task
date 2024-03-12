@@ -89,7 +89,7 @@ var app = builder.Build();
 // app.UseLogInMiddleware();
 
 
-// app.UseLogMiddleware("file.log");
+app.UseLogMiddleware("file.log");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

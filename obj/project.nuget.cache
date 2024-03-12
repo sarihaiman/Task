@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1o3z4jAsHy2ewPcSgowEWbOeAQm72IVXgnOdFsqpCsB9wimyFNsDvc5JsdNW4HyKYqRErb5g1FOTrSrKfbIuXA==",
+  "dgSpecHash": "U2s1isYFw4xfSrIifbepNN66qX4znbueC0xeCyXOtXUAYcz4b/5Ty+DbR8OdHCeNdrs97QnuhoiRqznT9B0pMA==",
   "success": true,
-  "projectFilePath": "D:\\תכנות\\core\\‏‏09.03\\MyTask\\1.csproj",
+  "projectFilePath": "D:\\תכנות\\core\\12.03\\MyTask\\1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\6.0.0\\microsoft.aspnetcore.authentication.google.6.0.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.4\\microsoft.aspnetcore.authentication.jwtbearer.5.0.4.nupkg.sha512",

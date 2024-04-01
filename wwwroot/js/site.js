@@ -185,7 +185,6 @@ function getUser() {
         .then(data => showUser(data))
         .catch(error => {
             console.error(error);
-            alert("The Token77 finish")
         });
 }
 

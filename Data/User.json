@@ -1,9 +1,20 @@
-[{"UserId":11,"Username":"rut","Password":"3","Admin":false},
-{"UserId":2,"Username":"chaya","Password":"2","Admin":true},
-{"UserId":3,"Username":"dfhg","Password":"dfg","Admin":true},
-{"UserId":4,"Username":"fdg","Password":"fgh","Admin":false},
-{"UserId":1,"Username":"\u05DE\u05E9\u05E4\u05D7\u05EA \u05D4\u05D9\u05D9\u05DE\u05DF","Password":"107758390708482554738","Admin":true},
-{"UserId":2,"Username":"chaya","Password":"2","Admin":true},
-{"UserId":3,"Username":"dfhg","Password":"dfg","Admin":true},
-{"UserId":4,"Username":"fdg","Password":"fgh","Admin":false},
-{"UserId":5,"Username":"fdg","Password":"fgh","Admin":true}]
+[
+    {
+        "UserId": 3,
+        "Username": "rut",
+        "Password": "3",
+        "Admin": false
+    },
+    {
+        "UserId": 2,
+        "Username": "chaya",
+        "Password": "2",
+        "Admin": true
+    },
+    {
+        "UserId": 1,
+        "Username": "\u05DE\u05E9\u05E4\u05D7\u05EA \u05D4\u05D9\u05D9\u05DE\u05DF",
+        "Password": "107758390708482554738",
+        "Admin": true
+    }
+]

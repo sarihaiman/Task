@@ -5,7 +5,6 @@ using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyUser.Models;
-// using MyUser.Services;
 using MyTask.Services;
 using UserServices;
 using System.Text.Json;
@@ -13,7 +12,7 @@ using MyUser.Interface;
 using System.Linq;
 using System.IO;
 
-namespace FBI.Controllers
+namespace MyTask.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -25,7 +24,7 @@ namespace FBI.Controllers
         public LoginController(IUserService UserServicess)
         {
             this.UserServicess = UserServicess;
-            this.userfile = Path.Combine(/*webHost.ContentRootPath,*/ "Data", "User.json");
+            this.userfile = Path.Combine("Data", "User.json");
             using (var jsonFile = System.IO.File.OpenText(userfile))
             {
                 users = JsonSerializer.Deserialize<List<User>>(jsonFile.ReadToEnd(),
@@ -50,51 +49,11 @@ namespace FBI.Controllers
                 new Claim("UserId",user.UserId.ToString()),
             };
 
-            if(user.Admin==true)
+            if (user.Admin == true)
                 claims.Add(new Claim("type", "Admin"));
             var token = TaskTokenService.GetToken(claims);
 
             return new OkObjectResult(TaskTokenService.WriteToken(token));
         }
-
-        // [HttpGet]
-        // [Authorize(Policy = "Admin")]
-        // [Route("[action]")]
-        // public ActionResult<List<User>> Get()
-        // {
-        //     return UserServicess.GetAllUser();
-        // }
-
-        // [HttpGet("{id}")]
-        // public ActionResult<User> Get(string id)
-        // {
-        //     var User = UserServicess.AdminGetById(id);
-        //     if (User == null)
-        //         return NotFound();
-        //     return User;
-        // }
-
-
-        // [HttpPost]
-        // [Authorize(Policy = "Admin")]
-        // public ActionResult Post(User user)
-        // {
-        //     int newId = UserServicess.AddUser(user);
-        //     return CreatedAtAction("Post",
-        //         new { password = newId }, UserServicess.GetUserById(newId));
-        // }
-
-        // [HttpDelete("{UserId}")]
-        // [Authorize(Policy = "Admin")]
-        // public ActionResult Delete(int UserId)
-        // {
-        //     var result = UserServicess.DeleteUser(UserId);
-        //     if (!result)
-        //     {
-        //         return BadRequest();
-        //     }
-        //     return NoContent();
-        // }
     }
-
 }

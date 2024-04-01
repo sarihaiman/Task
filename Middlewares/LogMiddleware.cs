@@ -28,7 +28,6 @@ public class LogMiddleware
                 sw.WriteLine(logMessage);
             }
         }
-
 }
 
 public static partial class MiddleExtensions

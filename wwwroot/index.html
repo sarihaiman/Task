@@ -10,23 +10,30 @@
 </head>
 
 <body>
-    <form action="javascript:void(0);" id="formLogIn" method="POST" onsubmit="Login()">
+    <form action="javascript:void(0);" id="formLogIn" method="POST" onsubmit="toConnect()">
         <input type="text" id="name" name="name" placeholder="Name">
-        <input type="text" id="password" name="password" placeholder="Password">
+        <input type="password" id="password" name="password" placeholder="Password">
         <input type="submit" value="LogIn">
     </form>
     <br>
-    <button id="btn-google-connect">Connect with Google</button>
 
-    <!-- <button onclick="redirectToPostman()">Login with Postman</button> -->
+    <div id="g_id_onload" data-client_id="376807414856-m7o1bh79t995f461vv3g3sfkvk0k1fsi.apps.googleusercontent.com" data-callback="handleCredentialResponse">
+    </div>
 
-    <a href="https://galactic-escape-977688.postman.co/collection/31259708-9b44515a-d7fd-43a3-9e9e-bb343550cab0?source=rip_html">
+    <div class="postman-run-button" data-postman-action="collection/fork" data-postman-visibility="public" data-postman-var-1="31259708-28fe00d9-9aa9-4599-a5c8-51d336092dfe" data-postman-collection-url="entityId=31259708-28fe00d9-9aa9-4599-a5c8-51d336092dfe&entityType=collection&workspaceId=d9750f4b-9ec5-40b4-a8cd-38d95ad562f5"></div>
+    <script type="text/javascript">
+        (function(p, o, s, t, m, a, n) {
+            !p[s] && (p[s] = function() {
+                (p[t] || (p[t] = [])).push(arguments);
+            });
+            !o.getElementById(s + t) && o.getElementsByTagName("head")[0].appendChild((
+                (n = o.createElement("script")),
+                (n.id = s + t), (n.async = 1), (n.src = m), n
+            ));
+        }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
+    </script>
 
-    <img alt="Run in Postman" src="https://run.pstmn.io/button.svg">
-    </a>
-
-  
-
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="js/login.js">
     </script>
 </body>

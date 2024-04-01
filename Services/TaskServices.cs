@@ -85,7 +85,6 @@ namespace TaskServices
             return true;
         }
     }
-
     public static class TaskUtils
     {
         public static void AddTask(this IServiceCollection services)

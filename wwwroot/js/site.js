@@ -1,14 +1,14 @@
 const uri = '/todo';
-let pizzas = [];
+let tasks = [];
 const token = localStorage.getItem("token");
+var myHeaders = new Headers();
+myHeaders.append("Authorization", "Bearer " + token);
+myHeaders.append("Content-Type", "application/json");
 link();
-getItems(token);
+getItems();
 
 function link() {
     const link = document.getElementById('link');
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer " + token);
-    myHeaders.append("Content-Type", "application/json");
     var requestOptions = {
         method: 'GET',
         headers: myHeaders,
@@ -18,13 +18,13 @@ function link() {
     fetch("/user/GetAll", requestOptions)
         .then(response => response.json())
         .then(data => console.log(data))
-        .catch(error => { link.style = 'display:none';});
+        .catch(error => {
+            console.error(error);
+            link.style = 'display:none';
+        });
 }
 
-function getItems(token) {
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer " + token);
-    myHeaders.append("Content-Type", "application/json");
+function getItems() {
     var requestOptions = {
         method: 'GET',
         headers: myHeaders,
@@ -35,8 +35,9 @@ function getItems(token) {
         .then(response => response.json())
         .then(data => _displayItems(data))
         .catch(error => {
+            console.error(error);
+            alert("The Token finish")
             location.href = "index.html";
-            console.log('Unable to get items.', error)
         });
 }
 
@@ -47,47 +48,41 @@ function addItem() {
         IsDo: false,
         name: addNameTextbox.value.trim()
     };
-    console.log(item);
 
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer " + token);
-    myHeaders.append("Content-Type", "application/json");
-    // myHeaders.append("Accept", "application/json");
     fetch(uri, {
-        method: 'POST',
-        headers: myHeaders,
-        redirect: 'follow',
-        body: JSON.stringify(item)
-    })
+            method: 'POST',
+            headers: myHeaders,
+            redirect: 'follow',
+            body: JSON.stringify(item)
+        })
         .then(response => response.json())
         .then(() => {
-            getItems(token);
+            getItems();
             addNameTextbox.value = '';
         })
         .catch(error => {
+            console.error(error);
+            alert("The Token finish")
             location.href = "index.html";
-            console.log('Unable to get items.', error)
         });
 }
 
 function deleteItem(id) {
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer " + token);
-    myHeaders.append("Content-Type", "application/json");
     fetch(`${uri}/${id}`, {
-        method: 'DELETE',
-        headers: myHeaders,
-        redirect: 'follow'
-    })
-        .then(() => getItems(token))
+            method: 'DELETE',
+            headers: myHeaders,
+            redirect: 'follow'
+        })
+        .then(() => getItems())
         .catch(error => {
+            console.error(error);
+            alert("The Token finish")
             location.href = "index.html";
-            console.log('Unable to get items.', error)
         });
 }
 
 function displayEditForm(id) {
-    const item = pizzas.find(item => item.id === id);
+    const item = tasks.find(item => item.id === id);
     document.getElementById('edit-name').value = item.name;
     document.getElementById('edit-id').value = item.id;
     document.getElementById('edit-IsDo').checked = item.IsDo;
@@ -101,20 +96,18 @@ function updateItem() {
         IsDo: document.getElementById('edit-IsDo').checked,
         name: document.getElementById('edit-name').value.trim()
     };
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer " + token);
-    myHeaders.append("Content-Type", "application/json");
-    // myHeaders.append("Accept", "application/json");
+
     fetch(`${uri}/${itemId}`, {
-        method: 'PUT',
-        headers: myHeaders,
-        redirect: 'follow',
-        body: JSON.stringify(item)
-    })
-        .then(() => getItems(token))
+            method: 'PUT',
+            headers: myHeaders,
+            redirect: 'follow',
+            body: JSON.stringify(item)
+        })
+        .then(() => getItems())
         .catch(error => {
+            console.error(error);
+            alert("The Token finish")
             location.href = "index.html";
-            console.log('Unable to get items.', error)
         });
 
     closeInput();
@@ -128,12 +121,11 @@ function closeInput() {
 
 function _displayCount(itemCount) {
     const name = (itemCount === 1) ? 'todo' : 'todo kinds';
-
     document.getElementById('counter').innerText = `${itemCount} ${name}`;
 }
 
 function _displayItems(data) {
-    const tBody = document.getElementById('pizzas');
+    const tBody = document.getElementById('tasks');
     tBody.innerHTML = '';
 
     _displayCount(data.length);
@@ -171,22 +163,17 @@ function _displayItems(data) {
 
     });
 
-    pizzas = data;
+    tasks = data;
 }
 
-const editFormUser = document.getElementById('editFormUser');
+const urlUser = '/user';
 const editusername = document.getElementById('edit-username');
 const edituserpassword = document.getElementById('edit-userpassword');
-const saveuser = document.getElementById('saveUser');
 
-const urlUser = '/user/';
 let users = [];
 getUser();
 
 function getUser() {
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer " + token);
-    myHeaders.append("Content-Type", "application/json");
     var requestOptions = {
         method: 'GET',
         headers: myHeaders,
@@ -197,39 +184,37 @@ function getUser() {
         .then(response => response.json())
         .then(data => showUser(data))
         .catch(error => {
-            location.href = "index.html";
-            console.log('Unable to get items.', error)
+            console.error(error);
+            alert("The Token77 finish")
         });
 }
 
 let useridto;
 let Adminorno;
+
 function showUser(data) {
-        useridto = data.userId;
-        Adminorno=data.admin;
-        document.getElementById('edit-username').value = data.username;
-        document.getElementById('edit-userpassword').value = data.password;
+    useridto = data.userId;
+    Adminorno = data.admin;
+    editusername.value = data.username;
+    edituserpassword.value = data.password;
 }
 
 function uptadeUser() {
     const newuser = {
         UserId: useridto,
-        username: document.getElementById('edit-username').value.trim(),
-        password: document.getElementById('edit-userpassword').value.trim(),
+        username: editusername.value.trim(),
+        password: edituserpassword.value.trim(),
         Admin: Adminorno
     };
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer " + token);
-    myHeaders.append("Content-Type", "application/json");
     fetch(urlUser, {
-        method: 'PUT',
-        headers: myHeaders,
-        redirect: 'follow',
-        body: JSON.stringify(newuser)
-    })
-        .then(() => getUser(token))
+            method: 'PUT',
+            headers: myHeaders,
+            redirect: 'follow',
+            body: JSON.stringify(newuser)
+        })
+        .then(() => getUser())
         .catch(error => {
-            console.log('Unable to get items.', error)
+            console.error('Unable to get items.', error)
         });
     return false;
 }

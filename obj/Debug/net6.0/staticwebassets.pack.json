@@ -1,31 +1,31 @@
 {
   "Files": [
     {
-      "Id": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\Task.html",
+      "Id": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\Task.html",
       "PackagePath": "staticwebassets\\Task.html"
     },
     {
-      "Id": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\User.html",
+      "Id": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\User.html",
       "PackagePath": "staticwebassets\\User.html"
     },
     {
-      "Id": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\css\\site.css",
+      "Id": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\index.html",
+      "Id": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\js\\User.js",
+      "Id": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\js\\User.js",
       "PackagePath": "staticwebassets\\js\\User.js"
     },
     {
-      "Id": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\js\\login.js",
+      "Id": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\js\\login.js",
       "PackagePath": "staticwebassets\\js\\login.js"
     },
     {
-      "Id": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\js\\site.js",
+      "Id": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "sVRK+X3V3Lo6vS/Gs1DohO80hpNmNI5MWsPgosoCV7E=",
+  "Hash": "vr8JAnXjT5Zm2fVY4EB2pjE5SGURObpts7/0HwAr1RY=",
   "Source": "1",
   "BasePath": "_content/1",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "1\\wwwroot",
       "Source": "1",
-      "ContentRoot": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\",
+      "ContentRoot": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\",
       "BasePath": "_content/1",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\css\\site.css",
+      "Identity": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\css\\site.css",
       "SourceId": "1",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\",
+      "ContentRoot": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\",
       "BasePath": "_content/1",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\index.html",
+      "Identity": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\index.html",
       "SourceId": "1",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\",
+      "ContentRoot": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\",
       "BasePath": "_content/1",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\js\\login.js",
+      "Identity": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\js\\login.js",
       "SourceId": "1",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\",
+      "ContentRoot": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\",
       "BasePath": "_content/1",
       "RelativePath": "js/login.js",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\js\\login.js"
     },
     {
-      "Identity": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\js\\site.js",
+      "Identity": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\js\\site.js",
       "SourceId": "1",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\",
+      "ContentRoot": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\",
       "BasePath": "_content/1",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\js\\User.js",
+      "Identity": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\js\\User.js",
       "SourceId": "1",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\",
+      "ContentRoot": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\",
       "BasePath": "_content/1",
       "RelativePath": "js/User.js",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\js\\User.js"
     },
     {
-      "Identity": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\Task.html",
+      "Identity": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\Task.html",
       "SourceId": "1",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\",
+      "ContentRoot": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\",
       "BasePath": "_content/1",
       "RelativePath": "Task.html",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\Task.html"
     },
     {
-      "Identity": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\User.html",
+      "Identity": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\User.html",
       "SourceId": "1",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\תכנות\\core\\10.03\\MyTask\\wwwroot\\",
+      "ContentRoot": "D:\\תכנות\\core\\31.03\\MyTask\\wwwroot\\",
       "BasePath": "_content/1",
       "RelativePath": "User.html",
       "AssetKind": "All",

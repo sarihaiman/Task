@@ -1,42 +1,40 @@
 const uri = '/user';
 let users = [];
 const token = localStorage.getItem("token");
-getItems(token);
 
-function getItems(token) {
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer " + token);
-    myHeaders.append("Content-Type", "application/json");
+var myHeaders = new Headers();
+myHeaders.append("Authorization", "Bearer " + token);
+myHeaders.append("Content-Type", "application/json");
+getItems();
+
+function getItems() {
     var requestOptions = {
         method: 'GET',
         headers: myHeaders,
         redirect: 'follow'
     };
 
-    fetch('/user/GetAll', requestOptions)
+    fetch(`${uri}/GetAll`, requestOptions)
         .then(response => response.json())
         .then(data => _displayItems(data))
         .catch(error => {
-            location.href = "index.html";
+            alert("The Token finish")
             console.log('Unable to get items.', error)
+            location.href = "index.html";
         });
 }
 
 function addItem() {
     const addNameTextbox = document.getElementById('add-name');
     const addpassTextbox = document.getElementById('add-pass');
-    const Admin = document.getElementById('add-Admin').checked;
+    const Admin = document.getElementById('add-Admin');
 
     const item = {
-        Admin: Admin,
+        Admin: Admin.checked,
         username: addNameTextbox.value.trim(),
         Password: addpassTextbox.value.trim()
     };
-    console.log(item);
 
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer " + token);
-    myHeaders.append("Content-Type", "application/json");
     fetch(uri, {
             method: 'POST',
             headers: myHeaders,
@@ -45,37 +43,35 @@ function addItem() {
         })
         .then(response => response.json())
         .then(() => {
-            getItems(token);
+            getItems();
             addNameTextbox.value = '';
             addpassTextbox.value = '';
             Admin.checked = false;
         })
         .catch(error => {
-            location.href = "index.html";
+            alert("The Token finish")
             console.log('Unable to get items.', error)
+            location.href = "index.html";
         });
 }
 
 function deleteItem(id) {
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer " + token);
-    myHeaders.append("Content-Type", "application/json");
-    fetch(`/user/${id}`, {
+    fetch(`${uri}/${ id }`, {
             method: 'DELETE',
             headers: myHeaders,
             redirect: 'follow'
         })
-        .then(() => getItems(token))
+        .then(() => getItems())
         .catch(error => {
-            location.href = "index.html";
+            alert("The Token finish")
             console.log('Unable to get items.', error)
+            location.href = "index.html";
         });
 }
 
 function _displayCount(itemCount) {
     const name = (itemCount === 1) ? 'todo' : 'todo kinds';
-
-    document.getElementById('counter').innerText = `${itemCount} ${name}`;
+    document.getElementById('counter').innerText = `${ itemCount }${ name }`;
 }
 
 function _displayItems(data) {
@@ -87,7 +83,6 @@ function _displayItems(data) {
     const button = document.createElement('button');
 
     data.forEach(item => {
-        console.log(item);
         let IsDoCheckbox = document.createElement('input');
         IsDoCheckbox.type = 'checkbox';
         IsDoCheckbox.disabled = true;
@@ -95,7 +90,7 @@ function _displayItems(data) {
 
         let deleteButton = button.cloneNode(false);
         deleteButton.innerText = 'Delete';
-        deleteButton.setAttribute('onclick', `deleteItem(${item.userId})`);
+        deleteButton.setAttribute('onclick', `deleteItem(${ item.userId })`);
 
         let tr = tBody.insertRow();
 

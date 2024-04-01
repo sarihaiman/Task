@@ -4,7 +4,6 @@ using MyUser.Models;
 using MyUser.Interface;
 using Microsoft.AspNetCore.Authorization;
 using System.IO;
-
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
@@ -23,7 +22,6 @@ public class userController : ControllerBase
     private string userfile;
     IUserService UserServicess;
     private int userid;
-
     public userController(IUserService UserServicess, IHttpContextAccessor httpContextAccessor)
     {
         this.userfile = Path.Combine(/*webHost.ContentRootPath,*/ "Data", "User.json");
@@ -38,23 +36,17 @@ public class userController : ControllerBase
             });
         }
     }
-
-    // [HttpGet]
-    // public ActionResult<List<User>> Get()
-    // {
-    //     return UserServicess.AdminGetAll();
-    // }
-
-    [Route("[action]")] 
-    [Authorize(Policy = "Admin")]
+    
     [HttpGet]
-    public ActionResult<List<User>> GetAll()
+    [Route("[action]")]
+    [Authorize(Policy = "Admin")]
+    public ActionResult<List<User>> getAll()
     {
         return UserServicess.GetAllUser();
     }
 
-    [Authorize(Policy = "User")]
     [HttpGet]
+    [Authorize(Policy = "User")]
     public ActionResult<User> Get()
     {
         var User = UserServicess.GetUserById(userid);
@@ -63,19 +55,8 @@ public class userController : ControllerBase
         return User;
     }
 
-    // [HttpPost]
-    // public ActionResult Post(Task1 newUser)
-    // {
-    //     var newId = UserServicess.Add(newUser);
-
-    //     return CreatedAtAction("Post", 
-    //         new {id = newId}, UserServicess.GetById(newId));
-    // }
-
-   
-    [Authorize(Policy = "User")] 
     [HttpPut("")]
-
+    [Authorize(Policy = "User")]
     public ActionResult Put(User user)
     {
         var result = UserServicess.UpdateUser(userid, user);
@@ -85,17 +66,6 @@ public class userController : ControllerBase
         }
         return NoContent();
     }
-
-    // [HttpDelete("{password}")]
-    // public ActionResult Delete(string password)
-    // {
-    //     var result = UserServicess.DeleteUser(password);
-    //     if (!result)
-    //     {
-    //         return BadRequest();
-    //     }
-    //     return NoContent();
-    // }
 
     [HttpPost]
     [Authorize(Policy = "Admin")]

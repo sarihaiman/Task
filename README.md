@@ -3,29 +3,29 @@
 
 ## Available Routes for User
 
-| URL                   | Method | Authorize | Description                     |
-|-----------------------|--------|-----------|---------------------------------|
-| /api/todo             | GET    | User      | Get all user's to-do items      |
-| /api/todo/{id}        | GET    | User      | Get a user's to-do item by ID   |
-| /api/user             | GET    | User      | Get my user                     |
-| /api/login            | POST   | User      | Login                           |
-| /api/todo             | POST   | User      | Add a new to-do item to user    |
-| /api/todo/{id}        | PUT    | User      | Update user's to-do item        |
-| /api/todo/{id}        | DELETE | User      | Delete user's to-do item        |
+| URL                   | Method | Description                     |
+|-----------------------|--------|---------------------------------|
+| /api/todo             | GET    | Get all user's to-do items      |
+| /api/todo/{id}        | GET    | Get a user's to-do item by ID   |
+| /api/user             | GET    | Get my user                     |
+| /api/login            | POST   | Login                           |
+| /api/todo             | POST   | Add a new to-do item to user    |
+| /api/todo/{id}        | PUT    | Update user's to-do item        |
+| /api/todo/{id}        | DELETE | Delete user's to-do item        |
 
 ## Available Routes for Admin
 
-| URL                   | Method | Authorize | Description                      |
-|-----------------------|--------|-----------|----------------------------------|
-| /api/todo             | GET    | Admin     | Get all user's to-do items        |
-| /api/todo/{id}        | GET    | Admin     | Get a user's to-do item by ID     |
-| /api/user             | GET    | Admin     | Get all users                     |
-| /api/user             | GET    | Admin     | Get my user                       |
-| /api/user             | POST   | Admin     | Add a new user                    |
-| /api/todo             | POST   | Admin     | Add a new to-do item to user      |
-| /api/todo/{id}        | PUT    | Admin     | Update user's to-do item          |
-| /api/todo/{id}        | DELETE | Admin     | Delete user's to-do item          |
-| /api/user/{id}        | DELETE | Admin     | Delete user and all his to-do's   |
+| URL                   | Method | Description                      |
+|-----------------------|--------|----------------------------------|
+| /api/todo             | GET    | Get all user's to-do items        |
+| /api/todo/{id}        | GET    | Get a user's to-do item by ID     |
+| /api/user             | GET    | Get all users                     |
+| /api/user             | GET    | Get my user                       |
+| /api/user             | POST   | Add a new user                    |
+| /api/todo             | POST   | Add a new to-do item to user      |
+| /api/todo/{id}        | PUT    | Update user's to-do item          |
+| /api/todo/{id}        | DELETE | Delete user's to-do item          |
+| /api/user/{id}        | DELETE | Delete user and all his to-do's   |
 
 # Server Side Notes
 
